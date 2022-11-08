@@ -5,11 +5,16 @@ import { clock, user, telephone } from '../../assets/icons/index';
 import { Link } from 'react-router-dom';
 
 export default function Header() {
-  const infoRefHover = React.useRef();
-
-  const [isOpen, setIsOpen] = React.useState(false);
-
   const style = 'cursor-pointer ease-in-out duration-200 hover:text-[#d81e3fd9]';
+  const [show, setShow] = React.useState(false);
+
+  const showDropdown = () => {
+    setShow(!show);
+  };
+
+  const hideDropdown = () => {
+    setShow(false);
+  };
 
   return (
     <div>
@@ -43,29 +48,44 @@ export default function Header() {
             <img src="" alt="" /> PROMOȚII
           </li>
         </ul>
-        <div className="relative">
-          <span className="cursor-pointer" ref={infoRefHover} onKeyDown={() => setActive(!active)}>
-            informație
-          </span>
+        {/* <select className="cursor-pointer">informație</select> */}
 
-          {isOpen && (
-            <div className="absolute z-10 w-[220px] right-0 font-medium px-5 py-3">
-              <ul className="text-[#848484] text-sm">
-                <li className="mb-1 ease-in-out duration-200 hover:text-[#d81e3fd9]">
-                  <Link to="/">Puncte Take Away & Restaurante</Link>
-                </li>
-                <li className="mb-1 ease-in-out duration-200 hover:text-[#d81e3fd9]">
-                  <Link to="/">Plata si livrarea</Link>
-                </li>
-                <li className="mb-1 ease-in-out duration-200 hover:text-[#d81e3fd9]">
-                  <Link to="/">Posturi vacante</Link>
-                </li>
-                <li className="ease-in-out duration-200hover:text-[#d81e3fd9]">
-                  <Link to="/">Contacte</Link>
-                </li>
-              </ul>
-            </div>
-          )}
+        <div className="relative" onMouseEnter={showDropdown} onMouseLeave={hideDropdown}>
+          <Link href="/" className="px-4 py-2 text-md hover:text-[#d81e3fd9]">
+            Informație
+          </Link>
+          <div className="inline-flex bg-white">
+            {show && (
+              <div className="absolute right-0 top-4 z-10 w-56 mt-4 origin-top-right bg-white">
+                <div className="p-2">
+                  <Link
+                    to="/"
+                    className="block px-4 py-2 text-sm text-[#848484] font-semibold hover:text-[#d81e3fd9]"
+                  >
+                    Puncte Take Away & Restaurante
+                  </Link>
+                  <Link
+                    to="/"
+                    className="block px-4 py-2 text-sm text-[#848484] font-semibold hover:text-[#d81e3fd9]"
+                  >
+                    Plata și livrarea
+                  </Link>
+                  <Link
+                    to="/"
+                    className="block px-4 py-2 text-sm text-[#848484] font-semibold hover:text-[#d81e3fd9]"
+                  >
+                    Posturi vacante
+                  </Link>
+                  <Link
+                    to="/"
+                    className="block px-4 py-2 text-sm text-[#848484] font-semibold hover:text-[#d81e3fd9]"
+                  >
+                    Contacte
+                  </Link>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
