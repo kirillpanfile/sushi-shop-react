@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
-import { Routes, Route, Link } from "react-router-dom";
-import Home from "./views/Home";
-import Sushi from "./views/Sushi";
+import { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Header from './components/common/Header';
+import Home from './views/Home';
+import Sushi from './views/Sushi';
 
 function App() {
   // const [sushi, setSushi] = useState([]);
@@ -12,13 +13,9 @@ function App() {
   // }, []);
 
   return (
-    <main>
-      <Link className="text-blue-500 mr-4" to="/">
-        Home
-      </Link>
-      <Link className="text-blue-500 mr-4" to="sushi">
-        Sushi
-      </Link>
+    <main className="container mx-auto w-[1200px]">
+      <Header />
+
       <Routes>
         <Route path="/" exact element={<Home />} />
         <Route path="/sushi" exact element={<Sushi />} />
