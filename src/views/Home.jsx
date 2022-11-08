@@ -1,7 +1,9 @@
+import TheRecomended from "../components/common/TheRecomended";
+import { useOnMounted } from "../hooks";
 export default function Home() {
-  return (
-    <div>
-      <h1>Home</h1>
-    </div>
-  );
+  useOnMounted(() => {
+    console.log("mounted");
+  });
+
+  return <TheRecomended />;
 }
