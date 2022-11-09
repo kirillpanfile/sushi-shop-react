@@ -54,38 +54,36 @@ export default function Header() {
           <Link href="/" className="px-4 py-2 text-md hover:text-[#d81e3fd9]">
             Informație
           </Link>
-          <div className="inline-flex bg-white">
-            {show && (
-              <div className="absolute right-0 top-4 z-10 w-56 mt-4 origin-top-right bg-white">
-                <div className="p-2">
-                  <Link
-                    to="/"
-                    className="block px-4 py-2 text-sm text-[#848484] font-semibold hover:text-[#d81e3fd9]"
-                  >
-                    Puncte Take Away & Restaurante
-                  </Link>
-                  <Link
-                    to="/"
-                    className="block px-4 py-2 text-sm text-[#848484] font-semibold hover:text-[#d81e3fd9]"
-                  >
-                    Plata și livrarea
-                  </Link>
-                  <Link
-                    to="/"
-                    className="block px-4 py-2 text-sm text-[#848484] font-semibold hover:text-[#d81e3fd9]"
-                  >
-                    Posturi vacante
-                  </Link>
-                  <Link
-                    to="/"
-                    className="block px-4 py-2 text-sm text-[#848484] font-semibold hover:text-[#d81e3fd9]"
-                  >
-                    Contacte
-                  </Link>
-                </div>
+          {show && (
+            <div className="absolute right-0 top-2 z-10 w-56 mt-4 origin-top-right bg-white">
+              <div className="p-2">
+                <Link
+                  to="/"
+                  className="block px-4 py-2 text-sm text-[#848484] font-semibold hover:text-[#d81e3fd9]"
+                >
+                  Puncte Take Away & Restaurante
+                </Link>
+                <Link
+                  to="/"
+                  className="block px-4 py-2 text-sm text-[#848484] font-semibold hover:text-[#d81e3fd9]"
+                >
+                  Plata și livrarea
+                </Link>
+                <Link
+                  to="/"
+                  className="block px-4 py-2 text-sm text-[#848484] font-semibold hover:text-[#d81e3fd9]"
+                >
+                  Posturi vacante
+                </Link>
+                <Link
+                  to="/"
+                  className="block px-4 py-2 text-sm text-[#848484] font-semibold hover:text-[#d81e3fd9]"
+                >
+                  Contacte
+                </Link>
               </div>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
