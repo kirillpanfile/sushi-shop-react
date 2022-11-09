@@ -17,25 +17,25 @@ export default function Header() {
   };
 
   return (
-    <div>
-      <div className="flex justify-between my-3">
+    <div className="w-[1200px] mx-auto">
+      <div className="flex justify-between items-center my-3">
         <img src={logo} className="object-contain w-[150px] h-full" alt="logo" />
         <div className="flex gap-5">
           <div className="flex items-center">
             <img src={clock} className="object-contain w-[25px] h-max mt-1" alt="clock" />
-            <p className="font-semibold text-xl">11:00 - 23:00</p>
+            <p className="font-semibold text-lg">11:00 - 23:00</p>
           </div>
           <div className="flex items-center">
             <img src={telephone} className="object-contain w-[25px] h-max mt-1" alt="clock" />
-            <a href="tel:078199299" className="font-semibold text-[#242424] text-xl">
+            <Link to="/" className="font-semibold text-[#242424] text-lg">
               078 199 299
-            </a>
+            </Link>
           </div>
-          <img src={user} className="object-contain w-[25px] align-middle" alt="user" />
+          <img src={user} className="object-contain w-[25px]" alt="user" />
         </div>
       </div>
-      <div className="flex justify-between font-bold text-[#242424]">
-        <ul className="inline-flex gap-4">
+      <div className="flex justify-between font-bold items-center text-[#242424]">
+        <ul className="inline-flex items-center gap-4 h-[40px]">
           <li className={`${style} mr-2`}>ROLLS</li>
           <li className={`${style} mx-2`}>SETURI</li>
           <li className={`${style} mx-2`}>WOK</li>
