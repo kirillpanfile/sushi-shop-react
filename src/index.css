@@ -5,3 +5,8 @@
 body {
   font-family: "Roboto Condensed", Arial, Helvetica, sans-serif !important;
 }
+
+
+.container {
+  @apply flex-auto max-w-7xl mx-auto md:px-2 px-4;
+}

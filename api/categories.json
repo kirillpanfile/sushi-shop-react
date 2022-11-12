@@ -1,0 +1,17 @@
+[
+    {
+        "category_name": "Seturi",
+        "category_id": 1,
+        "image" : "https://norisushi.md/wp-content/uploads/2022/04/rounded_corners-1.png"
+    },
+    {
+        "category_name": "Rolluri",
+        "category_id": 2,
+        "image" : "https://norisushi.md/wp-content/uploads/2022/04/rounded_corners2.png"
+    },
+    {
+        "category_name": "Wok-uri",
+        "category_id": 3,
+        "image" : "https://norisushi.md/wp-content/uploads/2022/04/rounded_corners3.png"
+    }
+]

@@ -11,6 +11,7 @@
     ],
     "price": 539,
     "curr": "MDL",
+    "category_id" : 1,
     "img": "https://sumo.md/wp-content/uploads/2021/10/7-300x300.jpg"
   },
   {
@@ -25,6 +26,7 @@
     ],
     "price": 399,
     "curr": "MDL",
+    "category_id" : 1,
     "img": "https://sumo.md/wp-content/uploads/2021/05/max-300x300.jpg"
   },
   {
@@ -39,6 +41,7 @@
     ],
     "price": 529,
     "curr": "MDL",
+    "category_id" : 1,
     "img": "https://sumo.md/wp-content/uploads/2021/10/ninja-1-300x300.jpg"
   },
   {
@@ -53,6 +56,7 @@
     ],
     "price": 399,
     "curr": "MDL",
+    "category_id" : 1,
     "img": "https://sumo.md/wp-content/uploads/2021/10/rain-1-300x300.jpg"
   },
   {
@@ -67,6 +71,7 @@
     ],
     "price": 479,
     "curr": "MDL",
+    "category_id" : 1,
     "img": "https://sumo.md/wp-content/uploads/2021/10/sakura-300x300.jpg"
   },
   {
@@ -81,6 +86,7 @@
     ],
     "price": 369,
     "curr": "MDL",
+    "category_id" : 1,
     "img": "https://sumo.md/wp-content/uploads/2021/05/family-300x300.jpg"
   },
   {
@@ -95,6 +101,7 @@
     ],
     "price": 299,
     "curr": "MDL",
+    "category_id" : 1,
     "img": "https://sumo.md/wp-content/uploads/2022/01/inu-1-300x300.jpg"
   },
   {
@@ -109,6 +116,7 @@
     ],
     "price": 299,
     "curr": "MDL",
+    "category_id" : 1,
     "img": "https://sumo.md/wp-content/uploads/2022/01/kuma-1-300x300.jpg"
   },
   {
@@ -123,6 +131,7 @@
     ],
     "price": 479,
     "curr": "MDL",
+    "category_id" : 1,
     "img": "https://sumo.md/wp-content/uploads/2022/01/kuma-1-300x300.jpg"
   }
 ]
