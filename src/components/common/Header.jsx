@@ -1,99 +1,112 @@
 import React from "react";
-
-import logo from "../../assets/images/logo.png";
-import { clock, user, telephone } from "../../assets/icons/index";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import logo from "../../assets/images/logo.png";
+import { useOnUnmounted } from "../../hooks";
+
+const HeaderLink = ({ type, link, text, children, styles }) => {
+	if (type === "top") {
+		return (
+			<li className={"flex gap-2 items-center justify-center font-black text-xl " + styles}>
+				{children}
+			</li>
+		);
+	}
+	if (type === "bottom") {
+		return (
+			<li className="flex gap-2 items-center font-bold text-xl">
+				<Link to={link}>{text}</Link>
+			</li>
+		);
+	}
+};
+
+const topLinks = [
+	{
+		id: 1,
+		children: (
+			<>
+				<i className="fa-regular fa-clock"></i>
+				<span>11:00 - 23:00</span>
+			</>
+		),
+	},
+	{
+		id: 2,
+		children: (
+			<>
+				<i className="fa-regular fa-phone"></i>
+				<span>0745 123 456</span>
+			</>
+		),
+	},
+	{
+		id: 3,
+		children: <i className="fa-regular fa-user"></i>,
+	},
+];
 
 export default function Header() {
-	const style = "cursor-pointer ease-in-out duration-200 hover:text-[#d81e3fd9]";
-	const [show, setShow] = React.useState(false);
+	// whern second nav is on top of window stick it to top
+	const [sticky, setSticky] = useState(false);
 
-	const showDropdown = () => {
-		setShow(!show);
+	const handleScroll = () => {
+		if (window.scrollY > 95) setSticky(true);
+		else setSticky(false);
 	};
 
-	const hideDropdown = () => {
-		setShow(false);
-	};
+	window.addEventListener("scroll", handleScroll);
+
+	useOnUnmounted(() => {
+		window.removeEventListener("scroll", handleScroll);
+	});
 
 	return (
-		<div className="container">
-			<div className="flex justify-between items-center my-3">
-				<img src={logo} className="object-contain w-[150px] h-full" alt="logo" />
-				<div className="flex gap-5">
-					<div className="flex items-center">
-						<img
-							src={clock}
-							className="object-contain w-[25px] h-max mt-1"
-							alt="clock"
-						/>
-						<p className="font-semibold text-lg">11:00 - 23:00</p>
-					</div>
-					<div className="flex items-center">
-						<img
-							src={telephone}
-							className="object-contain w-[25px] h-max mt-1"
-							alt="clock"
-						/>
-						<Link to="/" className="font-semibold text-[#242424] text-lg">
-							078 199 299
-						</Link>
-					</div>
-					<img src={user} className="object-contain w-[25px]" alt="user" />
-				</div>
-			</div>
-			<div className="flex justify-between font-bold items-center text-[#242424]">
-				<ul className="inline-flex items-center gap-4 h-[40px]">
-					<li className={`${style} mr-2`}>ROLLS</li>
-					<li className={`${style} mx-2`}>SETURI</li>
-					<li className={`${style} mx-2`}>WOK</li>
-					<li className={`${style} mx-2`}>NIGIRI & GUNKAN</li>
-					<li className={`${style} mx-2`}>MAKI</li>
-					<li className={`${style} mx-2`}>SALATE</li>
-					<li className={`${style} mx-2`}>DESERT</li>
-					<li className={`${style} mx-2`}>BĂUTURI</li>
-					<li className={`${style} text-[#d81e3fd9] mx-2`}>
-						<img src="" alt="" /> PROMOȚII
-					</li>
+		<div className="flex flex-col">
+			<div
+				className={
+					"flex justify-between items-center py-6 container " +
+					(sticky ? "mb-[60px]" : "")
+				}
+			>
+				<Link to="/">
+					<img src={logo} className="object-contain w-[150px]" alt="logo" />
+				</Link>
+				<ul className="list-none flex items-center gap-4">
+					{topLinks.map(link => {
+						if (link.id === topLinks.length) {
+							return (
+								<HeaderLink
+									key={link.id}
+									type="top"
+									{...link}
+									styles="rounded-full bg-black text-white p-2 w-8 h-8 "
+								/>
+							);
+						}
+						return <HeaderLink key={link.id} type="top" {...link} />;
+					})}
 				</ul>
-				{/* <select className="cursor-pointer">informație</select> */}
-
-				<div className="relative" onMouseEnter={showDropdown} onMouseLeave={hideDropdown}>
-					<Link href="/" className="px-4 py-2 text-md hover:text-[#d81e3fd9]">
-						Informație
-					</Link>
-					{show && (
-						<div className="absolute right-0 top-2 z-10 w-56 mt-4 origin-top-right bg-white">
-							<div className="p-2">
-								<Link
-									to="/"
-									className="block px-4 py-2 text-sm text-[#848484] font-semibold hover:text-[#d81e3fd9]"
-								>
-									Puncte Take Away & Restaurante
-								</Link>
-								<Link
-									to="/"
-									className="block px-4 py-2 text-sm text-[#848484] font-semibold hover:text-[#d81e3fd9]"
-								>
-									Plata și livrarea
-								</Link>
-								<Link
-									to="/"
-									className="block px-4 py-2 text-sm text-[#848484] font-semibold hover:text-[#d81e3fd9]"
-								>
-									Posturi vacante
-								</Link>
-								<Link
-									to="/"
-									className="block px-4 py-2 text-sm text-[#848484] font-semibold hover:text-[#d81e3fd9]"
-								>
-									Contacte
-								</Link>
-							</div>
-						</div>
-					)}
+			</div>
+			<div
+				className={
+					"bg-gray-50 " + (sticky ? "fixed top-0 left-0 right-0 bg-white z-50" : "")
+				}
+			>
+				<div className="container flex justify-between items-center py-4">
+					<ul className="list-none flex gap-4">
+						<HeaderLink type="bottom" link="/category/1" text="ROLLS" />
+						<HeaderLink type="bottom" link="/category/2" text="SETURI" />
+						<HeaderLink type="bottom" link="/category/3" text="WOK" />
+						<HeaderLink type="bottom" link="/category/4" text="NIGIRI & GIULBAN" />
+					</ul>
+					<ul className="list-none flex gap-4">
+						<HeaderLink type="bottom" link="/cart" text="Cart" />
+					</ul>
 				</div>
 			</div>
 		</div>
 	);
 }
+
+// rounded-full bg-black text-white p-2 w-8 h-8

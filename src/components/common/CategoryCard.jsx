@@ -1,12 +1,14 @@
-export default function CategoryCard({ name, image }) {
+import { Link } from "react-router-dom";
+
+export default function CategoryCard({ name, image, link }) {
 	return (
-		<div className="flex flex-col justify-end overflow-hidden cursor-pointer">
+		<Link to={link} className="flex flex-col justify-end overflow-hidden cursor-pointer">
 			<img
 				src={image}
 				alt={name}
 				className="w-full h-full rounded-lg object-cover hover:scale-[1.1] transition-all duration-300"
 			/>
 			<h1 className="mt-2 font-black absolute ml-0 text-white text-3xl p-4">{name}</h1>
-		</div>
+		</Link>
 	);
 }

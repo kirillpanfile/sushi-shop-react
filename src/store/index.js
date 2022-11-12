@@ -1,5 +1,3 @@
-// create redux store
-import { applyMiddleware } from "redux";
 import { configureStore } from "@reduxjs/toolkit";
 import productReducer from "./products";
 import categoryReducer from "./category";

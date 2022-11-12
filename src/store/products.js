@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-const IDLE = "idle";
-const REQUEST = "request";
-const REQUEST_FULFILLED = "request_fulfilled";
-const REQUEST_REJECTED = "request_rejected";
+export const IDLE = "idle";
+export const REQUEST = "request";
+export const REQUEST_FULFILLED = "request_fulfilled";
+export const REQUEST_REJECTED = "request_rejected";
 
 const baseUrl = import.meta.env.VITE_BASE_URL;
 
@@ -50,7 +50,6 @@ const extraReducers = builder => {
 	builder.addCase(fetchProducts.fulfilled, (state, action) => {
 		state.status = REQUEST_FULFILLED;
 		state.products = action.payload;
-		state.status = IDLE;
 	});
 	builder.addCase(fetchProducts.rejected, (state, action) => {
 		state.status = REQUEST_REJECTED;
@@ -66,7 +65,6 @@ const extraReducers = builder => {
 	builder.addCase(fetchRecommendedProducts.fulfilled, (state, action) => {
 		state.status = REQUEST_FULFILLED;
 		state.recomendedProducts = action.payload;
-		state.status = IDLE;
 	});
 	builder.addCase(fetchRecommendedProducts.rejected, (state, action) => {
 		state.status = REQUEST_REJECTED;
@@ -83,6 +81,4 @@ const options = {
 
 const productsSlice = createSlice(options);
 
-export const { actions, reducer } = productsSlice;
-export default reducer;
-export { IDLE, REQUEST, REQUEST_FULFILLED, REQUEST_REJECTED };
+export default productsSlice.reducer;
